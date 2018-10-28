@@ -12,7 +12,7 @@ app.get('/search/:searchTerm',(req,res)=>{
   olx
   .searchOfferts(req.params.searchTerm)
   .then(offerts=>{
-    res.json(offerts);
+    res.json({success: 1,'myData': offerts});
   });
 });
 
@@ -20,7 +20,7 @@ app.get('/search/:searchTerm/:page',(req,res)=>{
   olx
   .searchOfferts(req.params.searchTerm, req.params.page)
   .then(offerts=>{
-    res.json(offerts);
+    res.json({success: 1,'myData': offerts});
   });
 });
 

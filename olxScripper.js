@@ -23,7 +23,8 @@ function searchOfferts(searchTerm,page){
         title:$title.html(),
         image:$image.attr('src'),
         price:$price.html(),
-        link:$src.attr('href')
+        link:$src.attr('href'),
+        source:'olx'
       };
       offerts.push(offert);
     });
