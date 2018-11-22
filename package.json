@@ -13,7 +13,10 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
+    "nightmare": "^3.0.1",
     "node-fetch": "^2.2.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "x-ray": "^2.3.3",
+    "yakuza": "^1.0.7"
   }
 }

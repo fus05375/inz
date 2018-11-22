@@ -1,5 +1,7 @@
 const express = require('express');
 const olx = require('./olxScripper');
+const gumtree = require('./gumtreeScripper');
+
 
 const app = express();
 
@@ -9,12 +11,17 @@ app.get('/',(req,res)=>{
   });
 });
 app.get('/search/:searchTerm',(req,res)=>{
-  olx
-  .searchOfferts(req.params.searchTerm)
+  Promise.all([
+    gumtree
+    .searchOfferts(req.params.searchTerm),
+    olx
+    .searchOfferts(req.params.searchTerm)
+  ])
   .then(offerts=>{
-    res.json({success: 1,'myData': offerts});
+    res.json({success: 1,'myData': offerts[0].concat(offerts[1])});
   });
 });
+
 
 app.get('/search/:searchTerm/:page',(req,res)=>{
   olx
