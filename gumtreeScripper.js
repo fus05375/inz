@@ -24,7 +24,7 @@ function searchOfferts(searchTerm,tag,page){
     tag='dom-i-ogrod/v1c4p';
   }else if (tag === 'muzyka-i-rozrywka'){
     tag='muzyka-i-rozrywka/v1c9490p';
-  }else if (tag === 'motoryzacja'){
+  }else if (tag === 'motoryzacja'){ //gumtree do rokzminki większej
     tag='motoryzacja/v1c5p';
   }else if (tag === 'oferty-pracy'){
     tag='oferty-pracy/v1c8p';
