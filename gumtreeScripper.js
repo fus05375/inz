@@ -16,30 +16,52 @@ const url = 'https://www.gumtree.pl/s-';
 function searchOfferts(searchTerm,tag,page){
   if (tag === 'all'){
     tag='/v1q0p';
+
   }else if(tag === 'moda'){
-    tag='moda/v1c9541p';
+    tag='moda/';
+    code='/v1c9541q0p';
   }else if (tag === 'nieruchomosci'){
-    tag='nieruchomosci/v1c2p';
+    tag='nieruchomosci/';
+    code='/v1c2q0p';
+
   }else if (tag === 'dom-i-ogrod'){
-    tag='dom-i-ogrod/v1c4p';
+    tag='dom-i-ogrod/';
+    code='/v1c4q0p';
+
   }else if (tag === 'muzyka-i-rozrywka'){
-    tag='muzyka-i-rozrywka/v1c9490p';
+    tag='muzyka-i-rozrywka/';
+    code='/v1c9490q0p';
+
   }else if (tag === 'motoryzacja'){ //gumtree do rokzminki większej
-    tag='motoryzacja/v1c5p';
+    tag='motoryzacja/';
+    code='/v1c5q0p';
+
   }else if (tag === 'oferty-pracy'){
-    tag='oferty-pracy/v1c8p';
+    tag='oferty-pracy/';
+    code='/v1c8q0p';
+
   }else if (tag === 'dla-dziecka'){
-    tag='dla-dziecka/v1c9459p';
+    tag='dla-dziecka/';
+    code='/v1c9459q0p';
+
   }else if (tag === 'elektronika'){
-    tag='elektronika/v1c9237p';
+    tag='elektronika/';
+    code='/v1c9237q0p';
+
   }else if (tag === 'uslugi'){
-    tag='uslugi/v1c9p';
+    tag='uslugi/';
+    code='/v1c9q0p';
+
   }else if (tag === 'zwierzaki'){
-    tag='zwierzaki/v1c9124p';
+    tag='zwierzaki/';
+    code='/v1c9124q0p';
+
   }else if (tag === 'sportowe'){
-    tag='sportowe/v1c9706p';
+    tag='sportowe/';
+    code='/v1c9706q0p';
+
   }
-  return fetch(`${url}${searchTerm}${tag}${page}`)
+  return fetch(`${url}${tag}${searchTerm}${code}${page}`)
   .then(response => response.text())
   .then(body => {
     const offerts = [];
