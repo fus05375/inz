@@ -1,3 +1,5 @@
+//gumtree miejsce oferty
+
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 // /v1q0p <-wyszukiwanie bez kategorii
@@ -16,52 +18,64 @@ const url = 'https://www.gumtree.pl/s-';
 function searchOfferts(searchTerm,tag,page){
   if (tag === 'all'){
     tag='/v1q0p';
+    endpoint =(`${url}${searchTerm}${tag}${page}`);
 
   }else if(tag === 'moda'){
     tag='moda/';
     code='/v1c9541q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
   }else if (tag === 'nieruchomosci'){
     tag='nieruchomosci/';
     code='/v1c2q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'dom-i-ogrod'){
     tag='dom-i-ogrod/';
     code='/v1c4q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'muzyka-i-rozrywka'){
     tag='muzyka-i-rozrywka/';
     code='/v1c9490q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
-  }else if (tag === 'motoryzacja'){ //gumtree do rokzminki większej
+  }else if (tag === 'motoryzacja'){ //gumtree miejsce oferty
     tag='motoryzacja/';
     code='/v1c5q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'oferty-pracy'){
     tag='oferty-pracy/';
     code='/v1c8q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'dla-dziecka'){
     tag='dla-dziecka/';
     code='/v1c9459q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'elektronika'){
     tag='elektronika/';
     code='/v1c9237q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'uslugi'){
     tag='uslugi/';
     code='/v1c9q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'zwierzaki'){
     tag='zwierzaki/';
     code='/v1c9124q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }else if (tag === 'sportowe'){
     tag='sportowe/';
     code='/v1c9706q0p';
+    endpoint=(`${url}${tag}${searchTerm}${code}${page}`);
 
   }
-  return fetch(`${url}${tag}${searchTerm}${code}${page}`)
+  return fetch(endpoint)
   .then(response => response.text())
   .then(body => {
     const offerts = [];
