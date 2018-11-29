@@ -27,9 +27,9 @@ app.get('/',(req,res)=>{
   */
 app.get('/search/:searchTerm/:tag/:page',(req,res)=>{
   Promise.all([
-    gumtree
-    .searchOfferts(req.params.searchTerm,req.params.tag,req.params.page),
     olx
+    .searchOfferts(req.params.searchTerm,req.params.tag,req.params.page),
+    gumtree
     .searchOfferts(req.params.searchTerm,req.params.tag,req.params.page)
   ])
   .then(offerts=>{
@@ -41,7 +41,7 @@ app.get('/search/:searchTerm/:tag/:page',(req,res)=>{
 
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 30000;
 app.listen(port, ()=> {
   console.log(`Listening on ${port}`);
 });
