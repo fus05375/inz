@@ -90,7 +90,7 @@ function searchOfferts(searchTerm,tag,page){
 
       const offert = {
         title:$title.text(),
-        image:$image.attr('data-src'),
+        image:$image.attr('data-src'),//to lub t
         price:$price.text(),
         link: 'https://www.gumtree.pl'+ $src.attr('href'),
         source:'gumtree'

@@ -1,0 +1,7 @@
+image:function($image){
+  if(!$image.attr('data-src')){
+    return $image.attr('src');
+  }else{
+    return $image.attr('data-src');
+  }
+}
