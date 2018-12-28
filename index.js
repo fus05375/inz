@@ -41,7 +41,7 @@ app.get('/search/:searchTerm/:tag/:page',(req,res)=>{
 
 
 
-const port = process.env.PORT || 30000;
+const port = process.env.PORT || 3000;
 app.listen(port, ()=> {
   console.log(`Listening on ${port}`);
 });
