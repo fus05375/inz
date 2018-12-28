@@ -83,13 +83,14 @@ function searchOfferts(searchTerm,tag,page){
     $('.view >ul> li').each(function(i,element){
       const $element = $(element);
       const $image = $element.find('div > #img-cnt > img');
+
       const $title = $element.find('div > div.container > div.title >a');
       const $price = $element.find('div > div.container > div.info > div.price > span.value>span');
       const $src = $element.find('div > div.container > div.title >a');
 
       const offert = {
         title:$title.text(),
-        image:$image.attr('src'),
+        image:$image.attr('data-src'),
         price:$price.text(),
         link: 'https://www.gumtree.pl'+ $src.attr('href'),
         source:'gumtree'
