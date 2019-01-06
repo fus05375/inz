@@ -14,7 +14,7 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
     "node-fetch": "^2.2.0",
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.4"
   },
   "engines": {
     "node": "10.x"
