@@ -3,6 +3,7 @@ const olx = require('./olxScripper');
 const gumtree = require('./gumtreeScripper');
 
 
+
 const app = express();
 
 app.get('/',(req,res)=>{
@@ -26,6 +27,10 @@ app.get('/',(req,res)=>{
   'sportowe'
   */
 app.get('/search/:searchTerm/:tag/:page',(req,res)=>{
+
+  req.headers['Proxy-Authorization'] = `Basic ${new Buffer('token').toString('base64')}`;
+
+
   Promise.all([
     olx
     .searchOfferts(req.params.searchTerm,req.params.tag,req.params.page),
@@ -34,7 +39,12 @@ app.get('/search/:searchTerm/:tag/:page',(req,res)=>{
   ])
   .then(offerts=>{
     res.json({success: 1,'myData': offerts[0].concat(offerts[1])});
-  });
+  })
+  .catch(
+    error=>{
+      res.json({success: 0,'myData': 'error occured: ' + error })
+    }
+  );
 });
 
 
