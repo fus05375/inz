@@ -10,7 +10,6 @@ const app = express();
 
 app.use('/api', proxy({ target: 'http://www.example.org', changeOrigin: true }))
 
-
 app.get('/',(req,res)=>{
   res.json({
     message:'Welcome to olx/gumtree Web Scraper!',
