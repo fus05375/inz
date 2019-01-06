@@ -1,10 +1,15 @@
 const express = require('express');
 const olx = require('./olxScripper');
 const gumtree = require('./gumtreeScripper');
+var proxy = require('http-proxy-middleware')
+
 
 
 
 const app = express();
+
+app.use('/api', proxy({ target: 'http://www.example.org', changeOrigin: true }))
+
 
 app.get('/',(req,res)=>{
   res.json({
